@@ -74,6 +74,8 @@ Ques.24. Write an SQL query to fetch employee names having a salary greater than
 Ques.25. Write an SQL query to find the current date-time.
 
 
+
+
 Ques.26. Write an SQL query to fetch all the Employee details from the EmployeeDetails table who joined in the Year 2020.
 
 
@@ -87,5 +89,5 @@ Ques.29. Write a query to fetch employee names and salary records. Display the e
 
 
 Ques. 30. Write an SQL query to fetch all the Employees who are also managers from the EmployeeDetails table.
-
+select * from employeedetails where empid in (select managerid from employeedetails);
 
