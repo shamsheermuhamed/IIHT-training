@@ -32,14 +32,19 @@ Select * from employeedetails where fullname like ‘__hn%’;
 
 Ques.11. Write an SQL query to fetch all the EmpIds which are present in either of the tables – ‘EmployeeDetails’ and ‘EmployeeSalary’.
 
+
 Ques.12. Write an SQL query to fetch common records between two tables.
+
 
 Ques.13. Write an SQL query to fetch records that are present in one table but not in another table.
 
+
 Ques.14. Write an SQL query to fetch the EmpIds that are present in both the tables –   ‘EmployeeDetails’ and ‘EmployeeSalary.
+select employeedetails.empid, employeesalary.empid from employeedetails inner join employeesalary on employeedetails.empid = employeesalary.empid;
 
 
 Ques.15. Write an SQL query to fetch the EmpIds that are present in EmployeeDetails but not in EmployeeSalary.
+select employeedetails.empid, employeesalary.empid from employeedetails right join employeesalary on employeedetails.empid = employeesalary.empid;
 
 Ques.16. Write an SQL query to fetch the employee’s full names and replace the space with ‘-’.
 
@@ -53,7 +58,7 @@ Ques.19. Write a query to fetch only the first name(string before space) from th
 
 
 Ques.20. Write an SQL query to uppercase the name of the employee and lowercase the city values.
-
+select upper(fullname),lower (city) from employeedetails;
 
 
 Ques.21. Write an SQL query to find the count of the total occurrences of a particular character – ‘n’ in the FullName field.
@@ -64,26 +69,25 @@ Ques.22. Write an SQL query to update the employee names by removing leading and
 
 
 Ques.23. Fetch all the employees who are not working on any project.
-
+select empid from employeesalary where project not in ('P1','P2');
 
 
 Ques.24. Write an SQL query to fetch employee names having a salary greater than or equal to 5000 and less than or equal to 10000.
-
+select fullname from employeesalary where salary between 5000 and 10000;
 
 
 Ques.25. Write an SQL query to find the current date-time.
-
-
+select current_timestamp();
 
 
 Ques.26. Write an SQL query to fetch all the Employee details from the EmployeeDetails table who joined in the Year 2020.
-
-
+select empid from employeedetails where year(dateofjoining)= 2020;
 
 Ques.27. Write an SQL query to fetch all employee records from the EmployeeDetails table who have a salary record in the EmployeeSalary table.
-
+select employeedetails.empid, employeesalary.empid from employeedetails left join employeesalary on employeedetails.empid = EmployeeSalary.empid;
 
 Ques.28. Write an SQL query to fetch the project-wise count of employees sorted by project’s count in descending order.
+select distinct project,count(distinct project) from employeesalary order by count(distinct project) desc;
 
 Ques.29. Write a query to fetch employee names and salary records. Display the employee details even if the salary record is not present for the employee.
 
